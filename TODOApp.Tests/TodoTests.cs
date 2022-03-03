@@ -35,9 +35,11 @@ namespace TODOApp.Tests
         public void MarkTodoAsComplete()
         {
             var taskname = "Test Completing new todo";
+
             todopage.AddTodo(taskname);
             var newtask = todopage.FindTodo(taskname);
             Assert.AreEqual(taskname, newtask.TaskText);
+
             newtask.MarkAsComplete();
             Assert.IsTrue(newtask.IsCompleted);
             Assert.AreEqual(0, todopage.GetCount());
@@ -48,9 +50,11 @@ namespace TODOApp.Tests
         public void DeleteTodo()
         {
             var taskname = "Test Delete new todo";
+
             todopage.AddTodo(taskname);
             var newtask = todopage.FindTodo(taskname);
             Assert.AreEqual(taskname, newtask.TaskText);
+
             newtask.DeleteTodo();
             Assert.AreEqual(0, todopage.TodosList.Count);
         }
